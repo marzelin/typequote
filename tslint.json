@@ -1,0 +1,15 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended", "tslint-react"],
+  "jsRules": {
+    "arrow-parens": false,
+    "trailing-comma": false,
+    "object-literal-key-quotes": [true, "as-needed"]
+  },
+  "rules": {
+    "arrow-parens": false,
+    "trailing-comma": false,
+    "object-literal-key-quotes": [true, "as-needed"]
+  },
+  "rulesDirectory": []
+}
