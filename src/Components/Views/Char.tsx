@@ -21,13 +21,14 @@ export default styled<
   },
   ({ current }) => current && { animation: `${blink} infinite .7s` },
   ({ lift }) =>
-    lift &&
-    `display: inline-block;
-  position: relative;
-  top: -5px;
-  color: #eee;
-  box-sizing: border-box;
-  font-weight: bold;`,
+    lift && {
+      display: "inline-block",
+      position: "relative",
+      top: "-5px",
+      color: "#eee",
+      boxSizing: "border-box",
+      fontWeight: "bold"
+    },
   ({ completed, lift }) =>
     completed && { color: lift ? "transparent" : "black" },
   ({ typo }) => typo && { color: "tomato" }

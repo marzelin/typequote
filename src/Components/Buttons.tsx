@@ -1,5 +1,7 @@
 import * as React from "react";
 import styled from "react-emotion";
+import { connect } from "react-redux";
+import { startTyping } from "../actionCreators";
 
 const Button = styled("button")`
   border-radius: 0 0 0.28571429rem 0.28571429rem;
@@ -39,4 +41,10 @@ const Button = styled("button")`
   }
 `;
 
-export default () => <Button>Start Typing</Button>;
+const mapDispatchToProps = {
+  onClick: startTyping
+};
+
+export default connect(null, mapDispatchToProps)(props => (
+  <Button {...props}>Start Typing</Button>
+));
