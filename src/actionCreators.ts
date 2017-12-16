@@ -1,8 +1,9 @@
+import { IStore } from "./store";
 export const handleInput = (char: string) => (
   dispatch: (action: { type: string; payload?: number | string }) => void,
-  getState: () => { current: number; text: string }
+  getState: () => IStore
 ) => {
-  const { current, text } = getState();
+  const { current, text: [text] } = getState();
   if (text[current] === char) {
     dispatch({
       payload: current + 1,
@@ -22,3 +23,5 @@ export const handleInput = (char: string) => (
 };
 
 export const startTyping = () => ({ type: "typingStarted" });
+
+export const newQuote = () => ({ type: "newQuote" });

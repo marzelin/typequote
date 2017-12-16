@@ -28,8 +28,22 @@ export default connect(mapStateToProps, mapDispatchToProps)(
       inputHandler(e.currentTarget.value);
       e.currentTarget.value = "";
     };
+    const focusEl = (el: HTMLTextAreaElement) => {
+      if (el) {
+        el.focus();
+      }
+    };
+    const focusEl2 = (e: React.SyntheticEvent<HTMLTextAreaElement>) => {
+      e.currentTarget.focus();
+    };
+
     return isPlaying ? (
-      <HiddenTextarea autoFocus={true} onChange={onChange} />
+      <HiddenTextarea
+        autoFocus={true}
+        onChange={onChange}
+        onBlur={focusEl2}
+        innerRef={focusEl}
+      />
     ) : null;
   }
 );

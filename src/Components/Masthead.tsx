@@ -25,7 +25,7 @@ const Subtitle = styled("h2")`
 
 export default () => (
   <Container>
-    <Title>TypeSpeed</Title>
+    <Title>TypeQuote</Title>
     <Subtitle>How Fast Can You Type?</Subtitle>
   </Container>
 );

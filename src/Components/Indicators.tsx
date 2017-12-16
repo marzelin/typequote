@@ -56,8 +56,13 @@ const Wpm = connect(mapStateToPropsWpm)(
     public state = { wpm: 0 };
     public componentWillReceiveProps(nextProps: IPropsWpm) {
       if (nextProps.isPlaying !== this.props.isPlaying) {
-        this.updateWpm(); // to update on completed typing
+        this.updateWpm(); // to update immediately after completed typing
         setTimeout(this.updateWpm, 100);
+      } else if (nextProps.startTime !== this.props.startTime) {
+        // when restarted
+        this.setState({
+          wpm: 0
+        });
       }
     }
     public render() {
@@ -71,6 +76,7 @@ const Wpm = connect(mapStateToPropsWpm)(
         });
         setTimeout(this.updateWpm, 2000);
       }
+      // tslint:disable-next-line:semicolon
     };
   }
 );

@@ -1,5 +1,6 @@
 import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import thunk from "redux-thunk";
+import quotes from "./quotes";
 
 interface Iaction {
   type: string;
@@ -11,6 +12,7 @@ const isPlayingReducer = (state = false, action: Iaction) => {
     case "typingStarted":
       return true;
     case "typingEnded":
+    case "newQuote":
       return false;
     default:
       return state;
@@ -24,6 +26,7 @@ const typosReducer = (state = new Set(), action: Iaction) => {
       state.add(action.payload);
       return state;
     case "typingStarted":
+    case "newQuote":
       return new Set();
     default:
       return state;
@@ -35,6 +38,7 @@ const currentReducer = (state = 0, action: Iaction) => {
     case "inputCorrect":
       return state + 1;
     case "typingStarted":
+    case "newQuote":
       return 0;
     default:
       return state;
@@ -50,12 +54,35 @@ const startTimeReducer = (state = null, action: Iaction) => {
   }
 };
 
-const textReducer = () => {
-  return `We build our computer (systems) the way we build our cities: over time, without a plan, on top of ruins.`;
+const random = (range: number) => Math.floor(Math.random() * range);
+
+const textReducer = (
+  state = quotes[random(quotes.length)],
+  action: Iaction
+) => {
+  switch (action.type) {
+    case "newQuote":
+      return quotes[random(quotes.length)];
+    default:
+      return state;
+  }
+};
+
+const isCompletedReducer = (state = false, action: Iaction) => {
+  switch (action.type) {
+    case "typingStarted":
+    case "newQuote":
+      return false;
+    case "typingEnded":
+      return true;
+    default:
+      return state;
+  }
 };
 
 const rootReducer = combineReducers<IStore>({
   current: currentReducer,
+  isCompleted: isCompletedReducer,
   isPlaying: isPlayingReducer,
   startTime: startTimeReducer,
   text: textReducer,
@@ -71,9 +98,10 @@ const enhancer = composeEnhancers(applyMiddleware(thunk));
 
 export interface IStore {
   current: number;
+  isCompleted: boolean;
   isPlaying: boolean;
   startTime: number;
-  text: string;
+  text: string[];
   typos: Set<number>;
 }
 
