@@ -24,7 +24,7 @@ const Container = styled("div")`
   padding: 1em 1em;
   border-radius: 0.28571429rem;
   border: 1px solid rgba(34, 36, 38, 0.15);
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 
   :before {
     transform: rotate(-1.2deg);
