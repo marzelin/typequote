@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "react-emotion";
 import { connect } from "react-redux";
-import { handleInput } from "../actionCreators";
+import { handleInput, startTyping as startTypingAC } from "../actionCreators";
 
 const HiddenTextarea = styled("textarea")`
   position: fixed;
@@ -12,6 +12,7 @@ const HiddenTextarea = styled("textarea")`
 interface IProps {
   isPlaying: boolean;
   inputHandler: (char: string) => any;
+  startTyping: typeof startTypingAC;
 }
 
 const mapStateToProps = ({ isPlaying }: { isPlaying: boolean }) => {
@@ -19,13 +20,22 @@ const mapStateToProps = ({ isPlaying }: { isPlaying: boolean }) => {
 };
 
 const mapDispatchToProps = {
-  inputHandler: handleInput
+  inputHandler: handleInput,
+  startTyping: startTypingAC
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(
-  ({ isPlaying, inputHandler }: IProps) => {
+  ({ isPlaying, inputHandler, startTyping }: IProps) => {
     const onChange = (e: React.SyntheticEvent<HTMLTextAreaElement>) => {
       inputHandler(e.currentTarget.value);
+      e.currentTarget.value = "";
+    };
+    const startTypingOnEnter = (
+      e: React.SyntheticEvent<HTMLTextAreaElement>
+    ) => {
+      if (e.currentTarget.value === "\n") {
+        startTyping();
+      }
       e.currentTarget.value = "";
     };
     const focusEl = (el: HTMLTextAreaElement) => {
@@ -37,13 +47,13 @@ export default connect(mapStateToProps, mapDispatchToProps)(
       e.currentTarget.focus();
     };
 
-    return isPlaying ? (
+    return (
       <HiddenTextarea
         autoFocus={true}
-        onChange={onChange}
+        onChange={isPlaying ? onChange : startTypingOnEnter}
         onBlur={focusEl2}
         innerRef={focusEl}
       />
-    ) : null;
+    );
   }
 );

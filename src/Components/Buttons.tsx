@@ -107,7 +107,7 @@ const mapStateToProps = ({ isPlaying }: IStore) => ({
 const PlayButton = connect(mapStateToProps, mapDispatchToProps)(
   ({ isPlaying, onClick }) => (
     <ButtonLeft onClick={onClick}>
-      {isPlaying ? "Restart" : "Start Typing"}
+      {isPlaying ? "Restart" : "Start Typing (↵)"}
     </ButtonLeft>
   )
 );
