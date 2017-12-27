@@ -1,7 +1,11 @@
 import * as React from "react";
 import styled from "react-emotion";
 import { connect } from "react-redux";
-import { handleInput, startTyping as startTypingAC } from "../actionCreators";
+import {
+  handleInput,
+  newQuote as newQuoteAC,
+  startTyping as startTypingAC
+} from "../actionCreators";
 
 const HiddenTextarea = styled("textarea")`
   position: fixed;
@@ -13,6 +17,7 @@ interface IProps {
   isPlaying: boolean;
   inputHandler: (char: string) => any;
   startTyping: typeof startTypingAC;
+  newQuote: typeof newQuoteAC;
 }
 
 const mapStateToProps = ({ isPlaying }: { isPlaying: boolean }) => {
@@ -21,11 +26,12 @@ const mapStateToProps = ({ isPlaying }: { isPlaying: boolean }) => {
 
 const mapDispatchToProps = {
   inputHandler: handleInput,
+  newQuote: newQuoteAC,
   startTyping: startTypingAC
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(
-  ({ isPlaying, inputHandler, startTyping }: IProps) => {
+  ({ isPlaying, inputHandler, startTyping, newQuote }: IProps) => {
     const onChange = (e: React.SyntheticEvent<HTMLTextAreaElement>) => {
       inputHandler(e.currentTarget.value);
       e.currentTarget.value = "";
@@ -35,6 +41,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(
     ) => {
       if (e.currentTarget.value === "\n") {
         startTyping();
+      } else if (e.currentTarget.value === "n") {
+        newQuote();
       }
       e.currentTarget.value = "";
     };

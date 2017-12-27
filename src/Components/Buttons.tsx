@@ -116,9 +116,13 @@ const mapDispatch = {
   onClick: newQuote
 };
 
-const NewQuoteButton = connect(null, mapDispatch)(({ onClick }) => (
-  <ButtonRight onClick={onClick}>New Quote</ButtonRight>
-));
+const mapState = ({ isPlaying }: IStore) => ({ isPlaying });
+
+const NewQuoteButton = connect(mapState, mapDispatch)(
+  ({ onClick, isPlaying }) => (
+    <ButtonRight onClick={onClick}>New Quote{!isPlaying && " (n)"}</ButtonRight>
+  )
+);
 
 export default () => (
   <Buttons>
