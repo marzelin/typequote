@@ -25,10 +25,11 @@ const Author = styled<IParams, "cite">("cite")`
       background-color: #ddd;
       color: #fff;
       box-sizing: border-box;
-      padding: 0 10px;
+      padding: 5px 10px 0;
       content: "type quote to reveal the author";
       display: block;
       border-radius: 3px;
+      font-size: 18px;
     }
   `};
 `;
