@@ -1,6 +1,6 @@
 import styled from "react-emotion";
 
-const Container = styled("div")`
+const MainContainer = styled("main")`
   margin-left: 1em;
   margin-right: 1em;
   @media only screen and (min-width: 768px) {
@@ -16,4 +16,4 @@ const Container = styled("div")`
   }
 `;
 
-export default Container;
+export default MainContainer;

@@ -6,21 +6,23 @@ import Buttons from "./Buttons";
 import Indicators from "./Indicators";
 import InputGetter from "./InputGetter";
 import QuoteBox from "./QuoteBox";
-import Container from "./Views/AppContainer";
+import MainContainer from "./Views/MainContainer";
 import Masthead from "./Views/Masthead";
 
 const store = getStore();
 
-export default () => (
+const App = () => (
   <Provider store={store}>
     <React.Fragment>
       <Masthead />
-      <Container>
+      <MainContainer>
         <Indicators />
         <QuoteBox />
         <Buttons />
-      </Container>
+      </MainContainer>
       <InputGetter />
     </React.Fragment>
   </Provider>
 );
+
+export default App;
