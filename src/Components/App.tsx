@@ -3,9 +3,9 @@ import { Provider } from "react-redux";
 import "../globalStyles";
 import getStore from "../store";
 import Buttons from "./Buttons";
-import Indicators from "./Indicators";
 import InputGetter from "./InputGetter";
 import QuoteBox from "./QuoteBox";
+import Indicators from "./Views/Indicators";
 import MainContainer from "./Views/MainContainer";
 import Masthead from "./Views/Masthead";
 
