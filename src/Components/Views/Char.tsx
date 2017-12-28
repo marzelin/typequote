@@ -22,12 +22,12 @@ export default styled<
   ({ current }) => current && { animation: `${blink} infinite .7s` },
   ({ lift }) =>
     lift && {
-      display: "inline-block",
-      position: "relative",
-      top: "-5px",
-      color: "#eee",
       boxSizing: "border-box",
-      fontWeight: "bold"
+      color: "#eee",
+      display: "inline-block",
+      fontWeight: "bold",
+      position: "relative",
+      top: "-5px"
     },
   ({ completed, lift }) =>
     completed && { color: lift ? "transparent" : "black" },
