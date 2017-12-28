@@ -1,5 +1,5 @@
 import { IStore } from "./store";
-export const handleInput = (char: string) => (
+export const checkIfCorrect = (char: string) => (
   dispatch: (action: { type: string; payload?: number | string }) => void,
   getState: () => IStore
 ) => {
