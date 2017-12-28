@@ -9,14 +9,11 @@ import Masthead from "./Masthead";
 import QuoteBox from "./QuoteBox";
 import Container from "./Views/AppContainer";
 
-const Void = ({ children }: { children: React.ReactNode }): JSX.Element =>
-  children as JSX.Element;
-
 const store = getStore();
 
 export default () => (
   <Provider store={store}>
-    <Void>
+    <React.Fragment>
       <Masthead />
       <Container>
         <Indicators />
@@ -24,6 +21,6 @@ export default () => (
         <Buttons />
       </Container>
       <InputGetter />
-    </Void>
+    </React.Fragment>
   </Provider>
 );
