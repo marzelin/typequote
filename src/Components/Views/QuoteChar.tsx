@@ -10,10 +10,14 @@ border-bottom: 3px solid black;
 }
 `;
 
-export default styled<
-  { current: boolean; typo: boolean; completed: boolean; lift: boolean },
-  "span"
->("span")(
+interface IParams {
+  current: boolean;
+  typo: boolean;
+  completed: boolean;
+  lift: boolean;
+}
+
+export default styled<IParams, "span">("span")(
   {
     borderBottom: "3px solid transparent",
     lineHeight: 1.5,

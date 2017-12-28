@@ -1,4 +1,7 @@
+import * as React from "react";
 import styled from "react-emotion";
+import Author from "../QuoteAuthor";
+import Text from "../QuoteText";
 
 const pseudoElementsStyles = `
     background-color: #fff;
@@ -39,4 +42,11 @@ const Container = styled("div")`
   }
 `;
 
-export default Container;
+const QuoteBox = () => (
+  <Container>
+    <Text />
+    <Author />
+  </Container>
+);
+
+export default QuoteBox;

@@ -3,11 +3,11 @@ import { Provider } from "react-redux";
 import "../globalStyles";
 import getStore from "../store";
 import InputGetter from "./InputGetter";
-import QuoteBox from "./QuoteBox";
 import Buttons from "./Views/ButtonGroup";
 import Indicators from "./Views/Indicators";
 import MainContainer from "./Views/MainContainer";
 import Masthead from "./Views/Masthead";
+import QuoteBox from "./Views/QuoteBox";
 
 const store = getStore();
 
