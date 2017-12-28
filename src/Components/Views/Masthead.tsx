@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "react-emotion";
 
-const Container = styled("div")`
+const Container = styled("header")`
   background: #1b1c1d;
   color: rgba(255, 255, 255, 0.9);
   text-align: center;
@@ -23,9 +23,11 @@ const Subtitle = styled("h2")`
   color: rgba(255, 255, 255, 0.9);
 `;
 
-export default () => (
+const Masthead = () => (
   <Container>
     <Title>TypeQuote</Title>
     <Subtitle>How Fast Can You Type?</Subtitle>
   </Container>
 );
+
+export default Masthead;

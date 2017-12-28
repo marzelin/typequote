@@ -5,9 +5,9 @@ import getStore from "../store";
 import Buttons from "./Buttons";
 import Indicators from "./Indicators";
 import InputGetter from "./InputGetter";
-import Masthead from "./Masthead";
 import QuoteBox from "./QuoteBox";
 import Container from "./Views/AppContainer";
+import Masthead from "./Views/Masthead";
 
 const store = getStore();
 
