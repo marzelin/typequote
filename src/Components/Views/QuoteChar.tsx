@@ -27,13 +27,12 @@ export default styled<IParams, "span">("span")(
   ({ lift }) =>
     lift && {
       boxSizing: "border-box",
-      color: "#eee",
+      color: "transparent",
       display: "inline-block",
       fontWeight: "bold",
       position: "relative",
       top: "-5px"
     },
-  ({ completed, lift }) =>
-    completed && { color: lift ? "transparent" : "black" },
+  ({ completed, lift }) => completed && !lift && { color: "black" },
   ({ typo }) => typo && { color: "tomato" }
 );

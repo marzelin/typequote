@@ -10,6 +10,9 @@ const Author = styled<IParams, "cite">("cite")`
   text-align: right;
   margin-top: 10px;
   width: 100%;
+  box-sizing: border-box;
+  /* padding needed so that the italicized text won't stick out of the cover */
+  padding-right: 10px;
   ${({ isConcealed }) =>
     isConcealed &&
     `
@@ -25,6 +28,7 @@ const Author = styled<IParams, "cite">("cite")`
       padding: 0 10px;
       content: "type quote to reveal the author";
       display: block;
+      border-radius: 3px;
     }
   `};
 `;
