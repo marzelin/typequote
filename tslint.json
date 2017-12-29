@@ -9,7 +9,8 @@
   "rules": {
     "arrow-parens": false,
     "trailing-comma": false,
-    "object-literal-key-quotes": [true, "as-needed"]
+    "object-literal-key-quotes": [true, "as-needed"],
+    "semicolon": [true, "always", "ignore-bound-class-methods"]
   },
   "rulesDirectory": []
 }
