@@ -35,7 +35,7 @@ class WpmIndicator extends React.Component<IProps, IState> {
         stopUpdatingWpm();
         updateWpm();
       }
-    } else if (startTime !== prevStartTime) {
+    } else if (isPlaying && startTime !== prevStartTime) {
       // typing restarted
       resetWpm();
       stopUpdatingWpm();
