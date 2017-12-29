@@ -1,45 +1,38 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { checkIfCorrect, newQuote, startTyping } from "../actionCreators";
-import {
-  Fn,
-  listenForShortcuts,
-  passTypedChar,
-  refocusEl
-} from "../InputGetterHelpers";
 import { IStore } from "../store";
+import {
+  callIfInputMatch,
+  Fn,
+  focusEl,
+  passInputValue
+} from "./__InputGetterHelpers";
 import HiddenTextarea from "./Views/HiddenTextArea";
 
 interface IProps {
   isPlaying: boolean;
-  checkIfCorrect: (char: string) => void;
-  startTyping: Fn;
-  newQuote: Fn;
+  onChar: (char: string) => void;
+  onEnter: Fn;
+  onN: Fn;
 }
+
+const InputGetter = ({ isPlaying, onChar, onEnter, onN }: IProps) => {
+  const onChange = isPlaying
+    ? passInputValue(onChar)
+    : callIfInputMatch(onEnter, onN);
+
+  return (
+    <HiddenTextarea autoFocus={true} onChange={onChange} onBlur={focusEl} />
+  );
+};
 
 const mapState = ({ isPlaying }: IStore) => ({ isPlaying });
 
 const mapDispatch = {
-  checkIfCorrect,
-  newQuote,
-  startTyping
-};
-
-const InputGetter = ({
-  isPlaying,
-  // tslint:disable:no-shadowed-variable
-  checkIfCorrect,
-  startTyping,
-  newQuote
-}: // tslint:enable:no-shadowed-variable
-IProps) => {
-  const onChange = isPlaying
-    ? passTypedChar(checkIfCorrect)
-    : listenForShortcuts(startTyping, newQuote);
-
-  return (
-    <HiddenTextarea autoFocus={true} onChange={onChange} onBlur={refocusEl} />
-  );
+  onChar: checkIfCorrect,
+  onEnter: startTyping,
+  onN: newQuote
 };
 
 export default connect(mapState, mapDispatch)(InputGetter);
