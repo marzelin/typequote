@@ -62,7 +62,11 @@ const textReducer = (
 ) => {
   switch (action.type) {
     case "newQuote":
-      return quotes[random(quotes.length)];
+      let newQuote: typeof state;
+      do {
+        newQuote = quotes[random(quotes.length)];
+      } while (newQuote[0] === state[0]);
+      return newQuote;
     default:
       return state;
   }
