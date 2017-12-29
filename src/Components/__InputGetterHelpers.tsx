@@ -1,5 +1,6 @@
 type Event = React.SyntheticEvent<HTMLTextAreaElement>;
 export type Fn = () => void;
+
 const Enter = "\n";
 
 export function focusEl({ currentTarget: el }: Event) {
