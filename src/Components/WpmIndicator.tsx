@@ -23,7 +23,7 @@ class WpmIndicator extends React.Component<IProps, IState> {
 
   public componentWillReceiveProps({ isPlaying, startTime }: IProps) {
     const { isPlaying: prevIsPlaying, startTime: prevStartTime } = this.props;
-    const { resetWpm, startUpdatingWpm, stopUpdatingWpm } = this;
+    const { resetWpm, startUpdatingWpm, stopUpdatingWpm, updateWpm } = this;
 
     if (isPlaying !== prevIsPlaying) {
       if (isPlaying) {
@@ -33,6 +33,7 @@ class WpmIndicator extends React.Component<IProps, IState> {
       } else {
         // typing completed
         stopUpdatingWpm();
+        updateWpm();
       }
     } else if (startTime !== prevStartTime) {
       // typing restarted
