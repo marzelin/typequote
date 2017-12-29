@@ -20,40 +20,48 @@ interface IState {
 class WpmIndicator extends React.Component<IProps, IState> {
   public state = { wpm: 0 };
   private intervalId: number;
+
   public componentWillReceiveProps({ isPlaying, startTime }: IProps) {
     const { isPlaying: prevIsPlaying, startTime: prevStartTime } = this.props;
+    const { resetWpm, startUpdatingWpm, stopUpdatingWpm } = this;
 
     if (isPlaying !== prevIsPlaying) {
-      if (isPlaying === true) {
+      if (isPlaying) {
         // typing started
-        this.resetWpm();
-        this.startUpdating();
+        resetWpm();
+        startUpdatingWpm();
       } else {
         // typing completed
-        this.stopUpdating();
+        stopUpdatingWpm();
       }
     } else if (startTime !== prevStartTime) {
       // typing restarted
-      this.resetWpm();
-      this.stopUpdating();
-      this.startUpdating();
+      resetWpm();
+      stopUpdatingWpm();
+      startUpdatingWpm();
     }
   }
+
   public render() {
     return <WpmView wpm={this.state.wpm} />;
   }
+
   public componentWillUnmount() {
-    this.stopUpdating();
+    this.stopUpdatingWpm();
   }
-  private resetWpm() {
+
+  private resetWpm = () => {
     this.setState(() => ({ wpm: 0 }));
-  }
-  private startUpdating = () => {
+  };
+
+  private startUpdatingWpm = () => {
     this.intervalId = self.setInterval(this.updateWpm, updatePeriod);
   };
-  private stopUpdating = () => {
+
+  private stopUpdatingWpm = () => {
     clearInterval(this.intervalId);
   };
+
   private updateWpm = () => {
     const { current: typedCharsCount, startTime } = this.props;
 
