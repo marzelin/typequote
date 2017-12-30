@@ -1,6 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { IStore } from "../store";
+import { IStoreState } from "../store";
 import AuthorView from "./Views/QuoteAuthor";
 
 interface IParams {
@@ -8,7 +8,7 @@ interface IParams {
   author: string;
 }
 
-const mapState = ({ isCompleted, text: [, author] }: IStore) => ({
+const mapState = ({ isCompleted, text: [, author] }: IStoreState) => ({
   author,
   isCompleted
 });

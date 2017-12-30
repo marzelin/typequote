@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { checkIfCorrect, newQuote, startTyping } from "../actionCreators";
-import { IStore } from "../store";
+import { IStoreState } from "../store";
 import {
   callIfInputMatch,
   Fn,
@@ -27,7 +27,7 @@ const InputGetter = ({ isPlaying, onChar, onEnter, onN }: IProps) => {
   );
 };
 
-const mapState = ({ isPlaying }: IStore) => ({ isPlaying });
+const mapState = ({ isPlaying }: IStoreState) => ({ isPlaying });
 
 const mapDispatch = {
   onChar: checkIfCorrect,

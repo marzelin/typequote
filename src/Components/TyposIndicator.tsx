@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
-import { IStore } from "../store";
+import { IStoreState } from "../store";
 import TyposView from "./Views/TyposIndicator";
 
-const mapState = ({ typos }: IStore) => {
+const mapState = ({ typos }: IStoreState) => {
   return { typos: typos.size };
 };
 

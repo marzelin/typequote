@@ -1,11 +1,11 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { IStore } from "../store";
+import { IStoreState } from "../store";
 import convertWhitespace from "./Logics/convertWhitespace";
 import Char from "./Views/QuoteChar";
 import TextView from "./Views/QuoteText";
 
-const mapState = ({ text: [text], current, isPlaying, typos }: IStore) => {
+const mapState = ({ text: [text], current, isPlaying, typos }: IStoreState) => {
   return {
     current,
     isPlaying,

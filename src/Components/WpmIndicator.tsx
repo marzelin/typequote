@@ -1,6 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { IStore } from "../store";
+import { IStoreState } from "../store";
 import WpmView from "./Views/WpmIndicator";
 
 const millisecsInMin = 60000; // 1000 milli * 60 secs
@@ -8,7 +8,7 @@ const charsInWord = 5;
 const updatePeriod = 1000;
 
 interface IProps {
-  startTime: number;
+  startTime: number | null;
   isPlaying: boolean;
   current: number;
 }
@@ -66,6 +66,11 @@ class WpmIndicator extends React.Component<IProps, IState> {
   private updateWpm = () => {
     const { current: typedCharsCount, startTime } = this.props;
 
+    if (startTime === null) {
+      this.resetWpm();
+      return;
+    }
+
     const typingTimeInMins = (Date.now() - startTime) / millisecsInMin;
     const wpm = Math.floor(typedCharsCount / typingTimeInMins / charsInWord);
 
@@ -73,7 +78,7 @@ class WpmIndicator extends React.Component<IProps, IState> {
   };
 }
 
-const mapState = ({ startTime, isPlaying, current }: IStore) => {
+const mapState = ({ startTime, isPlaying, current }: IStoreState) => {
   return { startTime, isPlaying, current };
 };
 

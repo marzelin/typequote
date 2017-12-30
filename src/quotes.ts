@@ -1,5 +1,5 @@
 // tslint:disable:max-line-length
-export default [
+const quotes: Array<[string, string]> = [
   [
     "What one programmer can do in one month, two programmers can do in two months.",
     "Fred Brooks"
@@ -26,3 +26,4 @@ export default [
     "Louis Srygley"
   ]
 ];
+export default quotes;

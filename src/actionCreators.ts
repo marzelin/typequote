@@ -1,27 +1,30 @@
-import { IStore } from "./store";
+import { Idispatch, TgetState } from "redux";
+import Action from "./actions";
 export const checkIfCorrect = (char: string) => (
-  dispatch: (action: { type: string; payload?: number | string }) => void,
-  getState: () => IStore
+  dispatch: Idispatch,
+  getState: TgetState
 ) => {
   const { current, text: [text] } = getState();
   if (text[current] === char) {
-    dispatch({
-      payload: current + 1,
-      type: "inputCorrect"
-    });
-    if (current + 1 === text.length) {
-      dispatch({
-        type: "typingEnded"
-      });
+    dispatch(inputCorrect);
+    if (current === text.length - 1) {
+      dispatch(typingCompleted);
     }
   } else {
-    dispatch({
-      payload: current,
-      type: "inputIncorrect"
-    });
+    dispatch(inputIncorrect(current));
   }
 };
 
-export const startTyping = () => ({ type: "typingStarted" });
+type AC = () => Action;
+type AC1<T> = (arg: T) => Action;
 
-export const newQuote = () => ({ type: "newQuote" });
+const typingCompleted: Action = { type: "TYPING_COMPLETED" };
+const inputCorrect: Action = { type: "INPUT_CORRECT" };
+
+export const startTyping: AC = () => ({ type: "TYPING_STARTED" });
+export const newQuote: AC = () => ({ type: "NEW_QUOTE" });
+
+const inputIncorrect: AC1<number> = index => ({
+  payload: index,
+  type: "INPUT_INCORRECT"
+});

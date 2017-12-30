@@ -1,14 +1,14 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { newQuote } from "../actionCreators";
-import { IStore } from "../store";
+import { IStoreState } from "../store";
 import { ButtonRight } from "./Views/Button";
 
 const mapDispatch = {
   onClick: newQuote
 };
 
-const mapState = ({ isPlaying }: IStore) => ({ isPlaying });
+const mapState = ({ isPlaying }: IStoreState) => ({ isPlaying });
 
 interface IParams {
   onClick: (e: React.SyntheticEvent<HTMLButtonElement>) => any;

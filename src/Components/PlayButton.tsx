@@ -1,14 +1,14 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { startTyping } from "../actionCreators";
-import { IStore } from "../store";
+import { IStoreState } from "../store";
 import { ButtonLeft } from "./Views/Button";
 
 const mapDispatch = {
   onClick: startTyping
 };
 
-const mapState = ({ isPlaying }: IStore) => ({
+const mapState = ({ isPlaying }: IStoreState) => ({
   isPlaying
 });
 
