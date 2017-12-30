@@ -1,7 +1,7 @@
+import getStore from "@appState/store";
+import AppView from "@Views/App";
 import * as React from "react";
 import { Provider } from "react-redux";
-import getStore from "../store";
-import AppView from "./Views/App";
 
 const store = getStore();
 

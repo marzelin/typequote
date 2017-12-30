@@ -1,8 +1,8 @@
+import { newQuote } from "@appState/actionCreators";
+import { IStoreState } from "@appState/store";
+import { ButtonRight } from "@Views/Button";
 import * as React from "react";
 import { connect } from "react-redux";
-import { newQuote } from "../actionCreators";
-import { IStoreState } from "../store";
-import { ButtonRight } from "./Views/Button";
 
 const mapDispatch = {
   onClick: newQuote

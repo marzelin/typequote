@@ -1,7 +1,7 @@
+import { IStoreState } from "@appState/store";
+import AuthorView from "@Views/QuoteAuthor";
 import * as React from "react";
 import { connect } from "react-redux";
-import { IStoreState } from "../store";
-import AuthorView from "./Views/QuoteAuthor";
 
 interface IParams {
   isCompleted: boolean;

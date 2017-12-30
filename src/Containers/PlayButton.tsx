@@ -1,8 +1,8 @@
+import { startTyping } from "@appState/actionCreators";
+import { IStoreState } from "@appState/store";
+import { ButtonLeft } from "@Views/Button";
 import * as React from "react";
 import { connect } from "react-redux";
-import { startTyping } from "../actionCreators";
-import { IStoreState } from "../store";
-import { ButtonLeft } from "./Views/Button";
 
 const mapDispatch = {
   onClick: startTyping

@@ -1,7 +1,7 @@
+import { IStoreState } from "@appState/store";
+import WpmView from "@Views/WpmIndicator";
 import * as React from "react";
 import { connect } from "react-redux";
-import { IStoreState } from "../store";
-import WpmView from "./Views/WpmIndicator";
 
 const millisecsInMin = 60000; // 1000 milli * 60 secs
 const charsInWord = 5;

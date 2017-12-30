@@ -1,5 +1,5 @@
+import InputGetter from "@Containers/InputGetter";
 import * as React from "react";
-import InputGetter from "../InputGetter";
 import Buttons from "./ButtonGroup";
 import Indicators from "./Indicators";
 import MainContainer from "./MainContainer";

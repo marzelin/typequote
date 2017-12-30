@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "react-emotion";
-import NewQuoteButton from "../NewQuoteButton";
-import PlayButton from "../PlayButton";
+import NewQuoteButton from "../Containers/NewQuoteButton";
+import PlayButton from "../Containers/PlayButton";
 
 const Container = styled("div")`
   width: 100%;

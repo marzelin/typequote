@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "react-emotion";
-import Author from "../QuoteAuthor";
-import Text from "../QuoteText";
+import Author from "../Containers/QuoteAuthor";
+import Text from "../Containers/QuoteText";
 
 const pseudoElementsStyles = `
     background-color: #fff;

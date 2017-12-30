@@ -1,14 +1,18 @@
-import * as React from "react";
-import { connect } from "react-redux";
-import { checkIfCorrect, newQuote, startTyping } from "../actionCreators";
-import { IStoreState } from "../store";
+import {
+  checkIfCorrect,
+  newQuote,
+  startTyping
+} from "@appState/actionCreators";
+import { IStoreState } from "@appState/store";
 import {
   callIfInputMatch,
   Fn,
   focusEl,
   passInputValue
-} from "./__InputGetterHelpers";
-import HiddenTextarea from "./Views/HiddenTextArea";
+} from "@helpers/InputGetterHelpers";
+import HiddenTextarea from "@Views/HiddenTextArea";
+import * as React from "react";
+import { connect } from "react-redux";
 
 interface IProps {
   isPlaying: boolean;

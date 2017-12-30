@@ -93,6 +93,10 @@ module.exports = {
       ".jsx"
     ],
     alias: {
+      "@Containers": path.resolve(paths.appSrc, "Containers"),
+      "@Views": path.resolve(paths.appSrc, "Views"),
+      "@appState": path.resolve(paths.appSrc, "appState"),
+      "@helpers": path.resolve(paths.appSrc, "helpers"),
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       "react-native": "react-native-web"

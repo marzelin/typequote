@@ -1,7 +1,7 @@
-export * from "node_modules/@types/react-redux";
+export * from "../node_modules/@types/react-redux";
 import { ComponentType, ComponentClass } from "react";
 import { Dispatchable } from "redux";
-import { IStoreState } from "./src/store";
+import { IStoreState } from "@appState/store";
 
 interface IConnect {
   <ExtProps, MapProps>(

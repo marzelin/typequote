@@ -1,9 +1,9 @@
+import { IStoreState } from "@appState/store";
+import convertWhitespace from "@helpers/convertWhitespace";
+import Char from "@Views/QuoteChar";
+import TextView from "@Views/QuoteText";
 import * as React from "react";
 import { connect } from "react-redux";
-import { IStoreState } from "../store";
-import convertWhitespace from "./Logics/convertWhitespace";
-import Char from "./Views/QuoteChar";
-import TextView from "./Views/QuoteText";
 
 const mapState = ({ text: [text], current, isPlaying, typos }: IStoreState) => {
   return {
