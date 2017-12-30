@@ -1,20 +1,32 @@
-import InputGetter from "@Containers/InputGetter";
-import * as React from "react";
-import Buttons from "./ButtonGroup";
-import Indicators from "./Indicators";
-import MainContainer from "./MainContainer";
-import Masthead from "./Masthead";
-import QuoteBox from "./QuoteBox";
+import Masthead from "@Views/Masthead";
 
-const App = () => (
+import * as React from "react";
+import styled from "react-emotion";
+
+const MainContainer = styled("main")`
+  margin-left: 1em;
+  margin-right: 1em;
+  @media only screen and (min-width: 768px) {
+    width: 723px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media only screen and (min-width: 992px) {
+    width: 933px;
+  }
+  @media only screen and (min-width: 1200px) {
+    width: 1127px;
+  }
+`;
+
+const App: React.SFC<{ Outside: React.ComponentType }> = ({
+  children,
+  Outside
+}) => (
   <React.Fragment>
     <Masthead />
-    <MainContainer>
-      <Indicators />
-      <QuoteBox />
-      <Buttons />
-    </MainContainer>
-    <InputGetter />
+    <MainContainer>{children}</MainContainer>
+    <Outside />
   </React.Fragment>
 );
 

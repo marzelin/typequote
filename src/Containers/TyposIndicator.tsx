@@ -1,5 +1,7 @@
 import { IStoreState } from "@appState/store";
+
 import TyposView from "@Views/TyposIndicator";
+
 import { connect } from "react-redux";
 
 const mapState = ({ typos }: IStoreState) => {

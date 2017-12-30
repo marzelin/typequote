@@ -1,7 +1,5 @@
 import * as React from "react";
 import styled from "react-emotion";
-import NewQuoteButton from "../Containers/NewQuoteButton";
-import PlayButton from "../Containers/PlayButton";
 
 const Container = styled("div")`
   width: 100%;
@@ -39,11 +37,14 @@ const Or = styled("div")`
   }
 `;
 
-const ButtonGroup = () => (
+const ButtonGroup: React.SFC<{
+  Left: React.ComponentType;
+  Right: React.ComponentType;
+}> = ({ Left, Right }) => (
   <Container>
-    <PlayButton />
+    <Left />
     <Or />
-    <NewQuoteButton />
+    <Right />
   </Container>
 );
 

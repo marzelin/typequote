@@ -1,7 +1,5 @@
 import * as React from "react";
 import styled from "react-emotion";
-import Author from "../Containers/QuoteAuthor";
-import Text from "../Containers/QuoteText";
 
 const pseudoElementsStyles = `
     background-color: #fff;
@@ -42,11 +40,6 @@ const Container = styled("div")`
   }
 `;
 
-const QuoteBox = () => (
-  <Container>
-    <Text />
-    <Author />
-  </Container>
-);
+const QuoteBox: React.SFC = ({ children }) => <Container>{children}</Container>;
 
 export default QuoteBox;

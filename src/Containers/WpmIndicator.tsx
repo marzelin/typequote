@@ -1,5 +1,7 @@
 import { IStoreState } from "@appState/store";
+
 import WpmView from "@Views/WpmIndicator";
+
 import * as React from "react";
 import { connect } from "react-redux";
 

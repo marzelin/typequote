@@ -1,11 +1,14 @@
-import * as React from "react";
-import { IndicatorContainer, Label, Value } from "./Indicator";
+import { Container, Label, Value } from "@Views/Indicator";
 
-const Typos = ({ typos }: { typos: number }) => (
-  <IndicatorContainer>
-    <Value>{typos}</Value>
+import * as React from "react";
+
+type Typos = ({ typos }: { typos: number }) => JSX.Element;
+
+const Typos: Typos = ({ typos }) => (
+  <Container>
     <Label>TYPOS</Label>
-  </IndicatorContainer>
+    <Value>{typos}</Value>
+  </Container>
 );
 
 export default Typos;

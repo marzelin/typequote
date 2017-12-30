@@ -4,13 +4,16 @@ import {
   startTyping
 } from "@appState/actionCreators";
 import { IStoreState } from "@appState/store";
+
 import {
   callIfInputMatch,
   Fn,
   focusEl,
   passInputValue
 } from "@helpers/InputGetterHelpers";
+
 import HiddenTextarea from "@Views/HiddenTextArea";
+
 import * as React from "react";
 import { connect } from "react-redux";
 
