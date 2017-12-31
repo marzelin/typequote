@@ -1,12 +1,12 @@
 import { IStoreState } from "@appState/store";
 
+import { calculateWpm } from "@helpers/calculateWpm";
+
 import WpmView from "@Views/WpmIndicator";
 
 import * as React from "react";
 import { connect } from "react-redux";
 
-const millisecsInMin = 60000; // 1000 milli * 60 secs
-const charsInWord = 5;
 const updatePeriod = 1000;
 
 interface IProps {
@@ -83,10 +83,7 @@ class WpmIndicator extends React.Component<IProps, IState> {
         return { wpm: 0 };
       }
 
-      const typingTimeInMins = (Date.now() - startTime) / millisecsInMin;
-      const wpm = Math.floor(typedCharsCount / typingTimeInMins / charsInWord);
-
-      return { wpm };
+      return { wpm: calculateWpm(startTime, typedCharsCount) };
     });
   };
 }
