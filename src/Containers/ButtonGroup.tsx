@@ -5,6 +5,7 @@ import ButtonGroupView from "@Views/ButtonGroup";
 
 import * as React from "react";
 
-export default () => (
+const Buttons = () => (
   <ButtonGroupView Left={PlayButton} Right={NewQuoteButton} />
 );
+export default Buttons;
