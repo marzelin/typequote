@@ -1,7 +1,7 @@
 export * from "../node_modules/redux";
 
-import Action from "@appState/actions";
-import { IStoreState } from "@appState/store";
+import Action from "@state/actions";
+import { IStoreState } from "@state/store";
 
 export type Dispatchable = (...as: any[]) => Action | ThunkAction;
 

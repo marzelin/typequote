@@ -1,9 +1,5 @@
-import {
-  checkIfCorrect,
-  newQuote,
-  startTyping
-} from "@appState/actionCreators";
-import { IStoreState } from "@appState/store";
+import { checkIfCorrect, newQuote, startTyping } from "@state/actionCreators";
+import { IStoreState } from "@state/store";
 
 import {
   callIfInputMatch,

@@ -1,4 +1,4 @@
-import { IStoreState } from "@appState/store";
+import { IStoreState } from "@state/store";
 // tslint:disable:max-line-length
 const quotes: Array<IStoreState["quote"]> = [
   [

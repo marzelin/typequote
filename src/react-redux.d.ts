@@ -3,7 +3,7 @@ export * from "../node_modules/@types/react-redux";
 import { ComponentType, ComponentClass } from "react";
 import { Dispatchable } from "redux";
 
-import { IStoreState } from "@appState/store";
+import { IStoreState } from "@state/store";
 
 interface IConnect {
   <ExtProps, MapProps>(

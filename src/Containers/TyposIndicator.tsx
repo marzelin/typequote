@@ -1,4 +1,4 @@
-import { IStoreState } from "@appState/store";
+import { IStoreState } from "@state/store";
 
 import TyposView from "@Views/TyposIndicator";
 

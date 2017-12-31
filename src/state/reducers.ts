@@ -1,7 +1,7 @@
-import Action from "@appState/actions";
-import quotes from "@appState/quotes";
-import { IStoreState } from "@appState/store";
 import { addIfUnique, chooseDifferentItem } from "@helpers/quoteHelpers";
+import Action from "@state/actions";
+import quotes from "@state/quotes";
+import { IStoreState } from "@state/store";
 import { combineReducers, Reducer } from "redux";
 
 const chooseDifferent = chooseDifferentItem(quotes);

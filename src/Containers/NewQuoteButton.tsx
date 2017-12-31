@@ -1,5 +1,5 @@
-import { newQuote } from "@appState/actionCreators";
-import { IStoreState } from "@appState/store";
+import { newQuote } from "@state/actionCreators";
+import { IStoreState } from "@state/store";
 
 import { ButtonRight } from "@Views/Button";
 

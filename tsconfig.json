@@ -45,8 +45,8 @@
       "@Views/*": [
         "Views/*"
       ],
-      "@appState/*": [
-        "appState/*"
+      "@state/*": [
+        "state/*"
       ],
       "@helpers/*": [
         "helpers/*"

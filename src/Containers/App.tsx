@@ -1,4 +1,4 @@
-import getStore from "@appState/store";
+import getStore from "@state/store";
 
 import ButtonGroup from "@Containers/ButtonGroup";
 import Indicators from "@Containers/Indicators";
