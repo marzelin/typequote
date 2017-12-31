@@ -15,7 +15,7 @@ export interface IStoreState {
   readonly isPlaying: boolean;
   readonly startTime: number | null;
   readonly quote: [string, string];
-  readonly typos: Set<number>;
+  readonly typos: number[];
 }
 
 export default () => {

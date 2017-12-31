@@ -25,7 +25,7 @@ const mapState = ({
 interface IParams {
   text: string;
   current: number;
-  typos: Set<number>;
+  typos: number[];
   isPlaying: boolean;
 }
 
@@ -36,7 +36,7 @@ const Text = ({ text, current, typos, isPlaying }: IParams) => {
       <Char
         key={i}
         current={isPlaying && i === current}
-        typo={typos.has(i)}
+        typo={typos.includes(i)}
         completed={i < current}
         lift={lift}
       >

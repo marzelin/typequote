@@ -1,15 +1,19 @@
+import Action from "@appState/actions";
+import quotes from "@appState/quotes";
+import { IStoreState } from "@appState/store";
+import { addIfUnique, chooseDifferentItem } from "@helpers/quoteHelpers";
 import { combineReducers, Reducer } from "redux";
-import Action from "./actions";
-import quotes from "./quotes";
-import { IStoreState } from "./store";
+
+const chooseDifferent = chooseDifferentItem(quotes);
+const getQuote = () => chooseDifferent(null);
 
 const initialState: IStoreState = {
   current: 0,
   isCompleted: false,
   isPlaying: false,
-  quote: quotes[random(quotes.length)],
+  quote: getQuote(),
   startTime: null,
-  typos: new Set()
+  typos: []
 };
 
 const current: Reducer<IStoreState["current"]> = (
@@ -63,11 +67,7 @@ const quote: Reducer<IStoreState["quote"]> = (
 ) => {
   switch (action.type) {
     case "NEW_QUOTE":
-      let newQuote: typeof state;
-      do {
-        newQuote = quotes[random(quotes.length)];
-      } while (newQuote[0] === state[0]);
-      return newQuote;
+      return chooseDifferent(state);
     default:
       return state;
   }
@@ -91,20 +91,16 @@ const typos: Reducer<IStoreState["typos"]> = (
 ) => {
   switch (action.type) {
     case "INPUT_INCORRECT":
-      state = new Set(state);
-      state.add(action.payload);
-      return state;
+      // we want to show only one typo for a given quote char
+      // because it's common to type a few characters before noticing a typo
+      return addIfUnique(state, action.payload);
     case "TYPING_STARTED":
     case "NEW_QUOTE":
-      return new Set();
+      return initialState.typos;
     default:
       return state;
   }
 };
-
-function random(range: number) {
-  return Math.floor(Math.random() * range);
-}
 
 const rootReducer = combineReducers<IStoreState, Action>({
   current,
