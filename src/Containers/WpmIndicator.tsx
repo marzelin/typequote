@@ -30,18 +30,28 @@ class WpmIndicator extends React.Component<IProps, IState> {
     if (isPlaying !== prevIsPlaying) {
       if (isPlaying) {
         // typing started
-        resetWpm();
         startUpdatingWpm();
       } else {
         // typing completed
         stopUpdatingWpm();
-        updateWpm();
+        if (startTime !== null) {
+          // update last time to get the final typing speed
+          // but NOT when typing is stopped
+          // by choosing a new quote (when startTime === null)
+          updateWpm();
+        }
       }
-    } else if (isPlaying && startTime !== prevStartTime) {
-      // typing restarted
+    }
+    if (startTime !== prevStartTime) {
+      // reset on start, restart and new quote
       resetWpm();
-      stopUpdatingWpm();
-      startUpdatingWpm();
+      if (isPlaying) {
+        // typing restarted
+        // reset interval to get regular periodic updates
+        // from the start
+        stopUpdatingWpm();
+        startUpdatingWpm();
+      }
     }
   }
 
@@ -66,17 +76,18 @@ class WpmIndicator extends React.Component<IProps, IState> {
   };
 
   private updateWpm = () => {
-    const { current: typedCharsCount, startTime } = this.props;
+    this.setState(() => {
+      const { current: typedCharsCount, startTime } = this.props;
 
-    if (startTime === null) {
-      this.resetWpm();
-      return;
-    }
+      if (startTime === null) {
+        return { wpm: 0 };
+      }
 
-    const typingTimeInMins = (Date.now() - startTime) / millisecsInMin;
-    const wpm = Math.floor(typedCharsCount / typingTimeInMins / charsInWord);
+      const typingTimeInMins = (Date.now() - startTime) / millisecsInMin;
+      const wpm = Math.floor(typedCharsCount / typingTimeInMins / charsInWord);
 
-    this.setState(() => ({ wpm }));
+      return { wpm };
+    });
   };
 }
 

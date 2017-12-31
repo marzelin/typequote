@@ -80,6 +80,8 @@ const startTime: Reducer<IStoreState["startTime"]> = (
   switch (action.type) {
     case "TYPING_STARTED":
       return Date.now();
+    case "NEW_QUOTE":
+      return initialState.startTime;
     default:
       return state;
   }
