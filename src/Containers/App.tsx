@@ -14,7 +14,7 @@ const store = getStore();
 
 const App = () => (
   <Provider store={store}>
-    <AppView Outside={InputGetter}>
+    <AppView AfterMain={InputGetter}>
       <Indicators />
       <QuoteBox />
       <ButtonGroup />

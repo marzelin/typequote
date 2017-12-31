@@ -19,14 +19,14 @@ const MainContainer = styled("main")`
   }
 `;
 
-const App: React.SFC<{ Outside: React.ComponentType }> = ({
+const App: React.SFC<{ AfterMain: React.ComponentType }> = ({
   children,
-  Outside
+  AfterMain
 }) => (
   <React.Fragment>
     <Masthead />
     <MainContainer>{children}</MainContainer>
-    <Outside />
+    <AfterMain />
   </React.Fragment>
 );
 
