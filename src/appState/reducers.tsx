@@ -7,8 +7,8 @@ const initialState: IStoreState = {
   current: 0,
   isCompleted: false,
   isPlaying: false,
+  quote: quotes[random(quotes.length)],
   startTime: null,
-  text: quotes[random(quotes.length)],
   typos: new Set()
 };
 
@@ -57,20 +57,8 @@ const isPlaying: Reducer<IStoreState["isPlaying"]> = (
   }
 };
 
-const startTime: Reducer<IStoreState["startTime"]> = (
-  state = initialState.startTime,
-  action: Action
-) => {
-  switch (action.type) {
-    case "TYPING_STARTED":
-      return Date.now();
-    default:
-      return state;
-  }
-};
-
-const text: Reducer<IStoreState["text"]> = (
-  state = initialState.text,
+const quote: Reducer<IStoreState["quote"]> = (
+  state = initialState.quote,
   action: Action
 ) => {
   switch (action.type) {
@@ -80,6 +68,18 @@ const text: Reducer<IStoreState["text"]> = (
         newQuote = quotes[random(quotes.length)];
       } while (newQuote[0] === state[0]);
       return newQuote;
+    default:
+      return state;
+  }
+};
+
+const startTime: Reducer<IStoreState["startTime"]> = (
+  state = initialState.startTime,
+  action: Action
+) => {
+  switch (action.type) {
+    case "TYPING_STARTED":
+      return Date.now();
     default:
       return state;
   }
@@ -110,8 +110,8 @@ const rootReducer = combineReducers<IStoreState, Action>({
   current,
   isCompleted,
   isPlaying,
+  quote,
   startTime,
-  text,
   typos
 });
 

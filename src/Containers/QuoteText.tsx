@@ -8,7 +8,12 @@ import TextView from "@Views/QuoteText";
 import * as React from "react";
 import { connect } from "react-redux";
 
-const mapState = ({ text: [text], current, isPlaying, typos }: IStoreState) => {
+const mapState = ({
+  quote: [text],
+  current,
+  isPlaying,
+  typos
+}: IStoreState) => {
   return {
     current,
     isPlaying,

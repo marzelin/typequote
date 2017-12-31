@@ -5,7 +5,7 @@ export const checkIfCorrect = (char: string) => (
   dispatch: Idispatch,
   getState: TgetState
 ) => {
-  const { current, text: [text] } = getState();
+  const { current, quote: [text] } = getState();
 
   if (text[current] === char) {
     dispatch(inputCorrect);

@@ -10,7 +10,7 @@ interface IParams {
   author: string;
 }
 
-const mapState = ({ isCompleted, text: [, author] }: IStoreState) => ({
+const mapState = ({ isCompleted, quote: [, author] }: IStoreState) => ({
   author,
   isCompleted
 });
