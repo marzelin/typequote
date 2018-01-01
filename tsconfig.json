@@ -34,10 +34,10 @@
     "baseUrl": "./src", /* Base directory to resolve non-absolute module names. */
     "paths": {
       "redux": [
-        "redux.d.ts"
+        "typings/redux.d.ts"
       ],
       "react-redux": [
-        "react-redux.d.ts"
+        "typings/react-redux.d.ts"
       ],
       "@Containers/*": [
         "Containers/*"
@@ -68,6 +68,6 @@
   },
   "files": [
     "src/index.tsx",
-    "src/typings.d.ts"
+    "src/typings/typings.d.ts"
   ]
 }

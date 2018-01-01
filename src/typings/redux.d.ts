@@ -1,4 +1,4 @@
-export * from "../node_modules/redux";
+export * from "../../node_modules/redux";
 
 import Action from "@state/actions";
 import { IStoreState } from "@state/store";
