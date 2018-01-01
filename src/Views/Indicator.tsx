@@ -1,4 +1,3 @@
-import * as React from "react";
 import styled from "react-emotion";
 
 export const Container = styled("div")`
@@ -25,22 +24,3 @@ export const Label = styled("div")`
   text-transform: uppercase;
   text-align: center;
 `;
-
-type Indicator = (
-  {
-    value,
-    label
-  }: {
-    label: string;
-    value: string | number;
-  }
-) => JSX.Element;
-
-const Indicator: Indicator = ({ value, label }) => (
-  <Container>
-    <Value>{value}</Value>
-    <Label>{label}</Label>
-  </Container>
-);
-
-export default Indicator;

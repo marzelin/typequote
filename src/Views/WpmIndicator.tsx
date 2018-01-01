@@ -1,11 +1,12 @@
-import Indicator from "@Views/Indicator";
+import { Container, Label } from "@Views/Indicator";
 
 import * as React from "react";
 
-type Wpm = ({ wpm }: { wpm: number }) => JSX.Element;
-
-const Wpm: Wpm = ({ wpm }) => (
-  <Indicator value={wpm} label="WORDS PER MINUTE" />
+const Wpm: React.SFC = ({ children }) => (
+  <Container>
+    {children}
+    <Label>WORDS PER MINUTE</Label>
+  </Container>
 );
 
 export default Wpm;

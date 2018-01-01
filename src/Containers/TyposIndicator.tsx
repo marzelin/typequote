@@ -1,13 +1,13 @@
-import { IStoreState } from "@state/store";
+import TyposValue from "@Containers/TyposValue";
 
-import TyposView from "@Views/TyposIndicator";
+import TyposIndicatorView from "@Views/TyposIndicator";
 
-import { connect } from "react-redux";
+import * as React from "react";
 
-const mapState = ({ typos }: IStoreState) => {
-  return { typos: typos.length };
-};
+const TyposIndicator = () => (
+  <TyposIndicatorView>
+    <TyposValue />
+  </TyposIndicatorView>
+);
 
-const Typos = connect(mapState)(TyposView);
-
-export default Typos;
+export default TyposIndicator;

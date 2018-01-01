@@ -1,15 +1,15 @@
-import Typos from "@Containers/TyposIndicator";
-import Wpm from "@Containers/WpmIndicator";
+import TyposIndicator from "@Containers/TyposIndicator";
+import WpmIndicator from "@Containers/WpmIndicator";
 
 import IndicatorsView from "@Views/Indicators";
 
 import * as React from "react";
 
-const Indicators: React.SFC = () => {
+const Indicators = () => {
   return (
     <IndicatorsView>
-      <Wpm />
-      <Typos />
+      <WpmIndicator />
+      <TyposIndicator />
     </IndicatorsView>
   );
 };

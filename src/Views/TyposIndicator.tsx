@@ -1,13 +1,11 @@
-import { Container, Label, Value } from "@Views/Indicator";
+import { Container, Label } from "@Views/Indicator";
 
 import * as React from "react";
 
-type Typos = ({ typos }: { typos: number }) => JSX.Element;
-
-const Typos: Typos = ({ typos }) => (
+const Typos: React.SFC = ({ children }) => (
   <Container>
     <Label>TYPOS</Label>
-    <Value>{typos}</Value>
+    {children}
   </Container>
 );
 
