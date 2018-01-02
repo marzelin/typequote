@@ -1,4 +1,3 @@
-import * as React from "react";
 import styled from "react-emotion";
 
 export const Container = styled("div")`
@@ -6,7 +5,4 @@ export const Container = styled("div")`
   display: flex;
 `;
 
-const Indicators: React.SFC = ({ children }) => (
-  <Container>{children}</Container>
-);
-export default Indicators;
+export default Container;

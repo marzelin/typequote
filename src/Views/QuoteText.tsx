@@ -1,9 +1,5 @@
 import * as React from "react";
 
-interface IParams {
-  chars: JSX.Element[];
-}
-
-const Chars = ({ chars }: IParams) => <q>{chars}</q>;
+const Chars: React.SFC = ({ children }) => <q>{children}</q>;
 
 export default Chars;

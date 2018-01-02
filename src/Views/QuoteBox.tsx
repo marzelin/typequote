@@ -1,4 +1,3 @@
-import * as React from "react";
 import styled from "react-emotion";
 
 const pseudoElementsStyles = `
@@ -40,6 +39,4 @@ const Container = styled("div")`
   }
 `;
 
-const QuoteBox: React.SFC = ({ children }) => <Container>{children}</Container>;
-
-export default QuoteBox;
+export default Container;
