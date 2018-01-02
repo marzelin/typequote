@@ -28,7 +28,7 @@ function wpmProvider<T extends object>(Comp: React.ComponentType<T>) {
 
     public componentWillReceiveProps({ isPlaying, startTime }: IProps) {
       const { isPlaying: prevIsPlaying, startTime: prevStartTime } = this.props;
-      const { resetWpm, startUpdatingWpm, stopUpdatingWpm, updateWpm } = this;
+      const { startUpdatingWpm, stopUpdatingWpm } = this;
 
       if (isPlaying !== prevIsPlaying) {
         if (isPlaying) {
@@ -37,45 +37,35 @@ function wpmProvider<T extends object>(Comp: React.ComponentType<T>) {
         } else {
           // typing completed
           stopUpdatingWpm();
-          if (startTime !== null) {
-            // update last time to get the final typing speed
-            // but NOT when typing is stopped
-            // by choosing a new quote (when startTime === null)
-            updateWpm();
-          }
         }
       }
-      if (startTime !== prevStartTime) {
-        // reset on start, restart and new quote
-        resetWpm();
-        if (isPlaying) {
-          // typing restarted
-          // reset interval to get regular periodic updates
-          // from the start
-          stopUpdatingWpm();
-          startUpdatingWpm();
-        }
+      if (isPlaying && startTime !== prevStartTime) {
+        // typing restarted
+        // reset interval to get regular periodic updates
+        // from the start
+        stopUpdatingWpm();
+        startUpdatingWpm();
       }
     }
 
     public render() {
       const {
         isPlaying,
-        current,
+        current: typedCharsCount,
         startTime,
         children,
         ...restProps
       } = this.props;
-      return <Comp {...restProps}>{this.state.wpm}</Comp>;
+
+      const wpm =
+        startTime === null ? 0 : calculateWpm(startTime, typedCharsCount);
+
+      return <Comp {...restProps}>{wpm}</Comp>;
     }
 
     public componentWillUnmount() {
       this.stopUpdatingWpm();
     }
-
-    private resetWpm = () => {
-      this.setState(() => ({ wpm: 0 }));
-    };
 
     private startUpdatingWpm = () => {
       this.intervalId = self.setInterval(this.updateWpm, updatePeriod);
@@ -86,15 +76,7 @@ function wpmProvider<T extends object>(Comp: React.ComponentType<T>) {
     };
 
     private updateWpm = () => {
-      this.setState(() => {
-        const { current: typedCharsCount, startTime } = this.props;
-
-        if (startTime === null) {
-          return { wpm: 0 };
-        }
-
-        return { wpm: calculateWpm(startTime, typedCharsCount) };
-      });
+      this.forceUpdate();
     };
   }
 
