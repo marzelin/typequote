@@ -1,11 +1,11 @@
 import getStore from "@state/store";
 
-import ButtonGroup from "@Containers/ButtonGroup";
-import Indicators from "@Containers/Indicators";
-import InputGetter from "@Containers/InputGetter";
-import QuoteBox from "@Containers/QuoteBox";
+import ButtonGroup from "@smarts/ButtonGroup";
+import Indicators from "@smarts/Indicators";
+import InputGetter from "@smarts/InputGetter";
+import QuoteBox from "@smarts/QuoteBox";
 
-import AppView from "@Views/App";
+import AppView from "@views/App";
 
 import * as React from "react";
 import { Provider } from "react-redux";

@@ -1,4 +1,4 @@
-import { Container, Label } from "@Views/Indicator";
+import { Container, Label } from "@views/Indicator";
 
 import * as React from "react";
 

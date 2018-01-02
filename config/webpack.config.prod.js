@@ -97,8 +97,8 @@ module.exports = {
       ".jsx"
     ],
     alias: {
-      "@Containers": path.resolve(paths.appSrc, "Containers"),
-      "@Views": path.resolve(paths.appSrc, "Views"),
+      "@smarts": path.resolve(paths.appSrc, "smarts"),
+      "@views": path.resolve(paths.appSrc, "views"),
       "@helpers": path.resolve(paths.appSrc, "helpers"),
       "@state": path.resolve(paths.appSrc, "state"),
       // Support React Native Web

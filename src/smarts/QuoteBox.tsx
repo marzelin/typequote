@@ -1,7 +1,7 @@
-import Author from "@Containers/QuoteAuthor";
-import Text from "@Containers/QuoteText";
+import Author from "@smarts/QuoteAuthor";
+import Text from "@smarts/QuoteText";
 
-import QuoteBoxView from "@Views/QuoteBox";
+import QuoteBoxView from "@views/QuoteBox";
 
 import * as React from "react";
 

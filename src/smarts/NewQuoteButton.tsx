@@ -1,7 +1,7 @@
 import { newQuote } from "@state/actionCreators";
 import { IStoreState } from "@state/store";
 
-import { ButtonRight } from "@Views/Button";
+import { ButtonRight } from "@views/Button";
 
 import * as React from "react";
 import { connect } from "react-redux";

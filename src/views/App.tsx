@@ -1,4 +1,4 @@
-import Masthead from "@Views/Masthead";
+import Masthead from "@views/Masthead";
 
 import * as React from "react";
 import styled from "react-emotion";

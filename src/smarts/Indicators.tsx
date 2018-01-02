@@ -1,7 +1,7 @@
-import TyposIndicator from "@Containers/TyposIndicator";
-import WpmIndicator from "@Containers/WpmIndicator";
+import TyposIndicator from "@smarts/TyposIndicator";
+import WpmIndicator from "@smarts/WpmIndicator";
 
-import IndicatorsView from "@Views/Indicators";
+import IndicatorsView from "@views/Indicators";
 
 import * as React from "react";
 

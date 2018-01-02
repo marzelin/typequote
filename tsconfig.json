@@ -39,11 +39,11 @@
       "react-redux": [
         "typings/react-redux.d.ts"
       ],
-      "@Containers/*": [
-        "Containers/*"
+      "@smarts/*": [
+        "smarts/*"
       ],
-      "@Views/*": [
-        "Views/*"
+      "@views/*": [
+        "views/*"
       ],
       "@state/*": [
         "state/*"

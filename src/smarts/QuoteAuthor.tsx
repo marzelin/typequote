@@ -1,6 +1,6 @@
 import { IStoreState } from "@state/store";
 
-import AuthorView from "@Views/QuoteAuthor";
+import AuthorView from "@views/QuoteAuthor";
 
 import * as React from "react";
 import { connect } from "react-redux";

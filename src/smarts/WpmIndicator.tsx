@@ -1,7 +1,7 @@
-import wpmProvider from "@Containers/wpmProvider";
+import wpmProvider from "@smarts/wpmProvider";
 
-import { Value } from "@Views/Indicator";
-import WpmIndicatorView from "@Views/WpmIndicator";
+import { Value } from "@views/Indicator";
+import WpmIndicatorView from "@views/WpmIndicator";
 
 import * as React from "react";
 

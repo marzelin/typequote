@@ -8,7 +8,7 @@ import {
   passInputValue
 } from "@helpers/InputGetterHelpers";
 
-import HiddenTextarea from "@Views/HiddenTextArea";
+import HiddenTextarea from "@views/HiddenTextArea";
 
 import * as React from "react";
 import { connect } from "react-redux";

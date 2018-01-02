@@ -1,7 +1,7 @@
 import { startTyping } from "@state/actionCreators";
 import { IStoreState } from "@state/store";
 
-import { ButtonLeft } from "@Views/Button";
+import { ButtonLeft } from "@views/Button";
 
 import * as React from "react";
 import { connect } from "react-redux";

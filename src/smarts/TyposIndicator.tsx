@@ -1,7 +1,7 @@
-import typosProvider from "@Containers/typosProvider";
+import typosProvider from "@smarts/typosProvider";
 
-import { Value } from "@Views/Indicator";
-import TyposIndicatorView from "@Views/TyposIndicator";
+import { Value } from "@views/Indicator";
+import TyposIndicatorView from "@views/TyposIndicator";
 
 import * as React from "react";
 

@@ -1,4 +1,4 @@
-import App from "@Containers/App";
+import App from "@smarts/App";
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";

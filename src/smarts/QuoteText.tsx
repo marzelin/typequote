@@ -2,8 +2,8 @@ import { IStoreState } from "@state/store";
 
 import convertWhitespace from "@helpers/convertWhitespace";
 
-import Char from "@Views/QuoteChar";
-import View from "@Views/QuoteText";
+import Char from "@views/QuoteChar";
+import View from "@views/QuoteText";
 
 import * as React from "react";
 import { connect } from "react-redux";
