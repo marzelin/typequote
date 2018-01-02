@@ -1,5 +1,11 @@
-import wpmProvider from "@Containers/wpmProvider";
+import WpmProvider from "@Containers/WpmProvider";
 
 import { Value } from "@Views/Indicator";
 
-export default wpmProvider(Value);
+import * as React from "react";
+
+const renderer = (wpm: number) => <Value>{wpm}</Value>;
+
+const WpmValue: React.SFC = () => <WpmProvider render={renderer} />;
+
+export default WpmValue;
