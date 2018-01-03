@@ -88,7 +88,31 @@
           "autoLabel": true
         }
       ]
-    ]
+    ],
+    "env": {
+      "production": {
+        "plugins": [
+          [
+            "emotion",
+            {
+              "sourceMap": false,
+              "autoLabel": false
+            }
+          ]
+        ]
+      },
+      "development": {
+        "plugins": [
+          [
+            "emotion",
+            {
+              "sourceMap": true,
+              "autoLabel": true
+            }
+          ]
+        ]
+      }
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
